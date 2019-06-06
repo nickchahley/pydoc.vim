@@ -1,0 +1,86 @@
+pydoc.txt pydoc Pydoc	Last change: 14 Mar 2019
+
+PYDOC                                                              *pydoc* *Pydoc*
+==============================================================================
+
+This plugin integrates the Python documentation view and search tool pydoc
+into Vim. It allows you to view the documentation of a Python module or class
+by typing:
+
+:Pydoc foo.bar.baz (e.g. :Pydoc re.compile)
+
+Or search a word (uses pydoc -k) in the documentation by typing:
+
+:PydocSearch foobar (e.g. :PydocSearch socket)
+
+Vim will split the current window to show the Python documentation found by
+pydoc (the buffer will be called '__doc__', Pythonic, isn't it ;-) ). The
+name may cause problems if you have a file with the same name, but usually
+this should not happen.
+
+pydoc.vim also allows you to view the documentation of the 'word' (see :help
+word) under the cursor by pressing <Leader>pw or the 'WORD' (see :help WORD)
+under the cursor by pressing <Leader>pW. This is very useful if you want to
+jump to the docs of a module or class found by 'PydocSearch' or if you want
+to see the docs of a module/class in your source code. Additionally K is
+mapped to show invoke pydoc as well, when you are editing python files.
+
+The script is developed in GitHub at:
+
+http://github.com/fs111/pydoc.vim
+
+
+If you want to use the script and pydoc is not in your PATH, just put a
+line like this in your .vimrc:
+
+let g:pydoc_cmd = '/usr/bin/pydoc'
+
+or more portable
+
+let g:pydoc_cmd = 'python -m pydoc'
+
+If you want to open pydoc files in vertical splits or tabs, give the
+appropriate command in your .vimrc with:
+
+let g:pydoc_open_cmd = 'vsplit'
+
+or
+
+let g:pydoc_open_cmd = 'tabnew'
+
+The script will highlight the search term by default. To disable this behaviour
+put in your .vimrc:
+
+let g:pydoc_highlight=0
+
+If you want pydoc to switch to an already open tab with pydoc page,
+set this variable in your .vimrc (uses drop - requires vim compiled with
+gui!):
+
+let g:pydoc_use_drop=1
+
+Pydoc files are open with 10 lines height, if you want to change this value
+put this in your .vimrc:
+
+let g:pydoc_window_lines=15
+or
+let g:pydoc_window_lines=0.5
+
+Float values specify a percentage of the current window.
+
+
+In order to install pydoc.vim download it from vim.org or clone the repository
+on githubi and put it in your .vim/ftplugin directory. pydoc.vim is also fully
+compatible with pathogen, so cloning the repository into your bundle directory
+is also a valid way to install it. (I do this myself. see
+https://github.com/fs111/dotvim).
+
+pydoc.vim is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+Please feel free to contact me and follow me on twitter (@fs111).
+
+==============================================================================
+vim:tw=78:sw=2:ts=2:ft=help:norl:nowrap:
