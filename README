@@ -10,3 +10,6 @@ Also note that you need a line like the following in your .vimrc file:
 You can find the complete documentation in the code itself.
 
 Happy hacking!
+
+Installation (vim-plug)
+`Plug 'nickchahley/pydoc.vim`
